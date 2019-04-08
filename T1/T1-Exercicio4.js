@@ -50,7 +50,7 @@ class Funcionario {
 
 let funcionarios = [];
 
-for(let i = 1; i <= 5; i++) {
+for(let i = 1; i <= 10; i++) {
   let codigo = readUserInput('Informe o codigo do funcionario');
   let horas = readUserInput('Informe o numero de horas trabalhadas');
   let depend = readUserInput('Informe o numero de dependentes');

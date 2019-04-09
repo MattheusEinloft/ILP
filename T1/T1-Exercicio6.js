@@ -38,7 +38,41 @@ function criarArrayPessoas(quantidade) {
 }
 
 let pessoas = criarArrayPessoas(10);
+mostrarTudoArray(pessoas);
+
+console.log('\n');
 
 let quantidadeRespostas10 = pessoas.filter(pessoa => pessoa.notaPeca === 10).length;
 
 console.log(`Quantidade de respostas 10: ${quantidadeRespostas10}`);
+
+// --------------------------------------------------
+
+function averageIdade(array) {
+    return array.reduce(function(sum, value) {
+        return sum + value.idade;
+    }, 0) / array.length;
+}
+
+let mediaIdades = averageIdade(pessoas);
+
+console.log(`Media de idade das pessoas: ${mediaIdades}`);
+
+// --------------------------------------------------
+
+let pessoasResponderam5OuMenos = pessoas.filter(pessoa => pessoa.notaPeca <= 5);
+
+let numRespostas5OuMenos = pessoasResponderam5OuMenos.length;
+let totalPessoas = pessoas.length;
+
+let percentualRespostas5OuMenos = (numRespostas5OuMenos * 100) / totalPessoas;
+
+console.log(`Percentual de respostas 5 ou menos: ${percentualRespostas5OuMenos}`);
+
+// --------------------------------------------------
+
+let idadeMaior = Math.max(...(pessoas.map(pessoa => pessoa.idade)));
+
+let pessoaMaisVelha = pessoas.find(pessoa => pessoa.idade === idadeMaior);
+
+console.log(`Identificador da pessoa mais velha: ${pessoaMaisVelha.identificador}`);

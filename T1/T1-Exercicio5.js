@@ -1,11 +1,3 @@
-// npm install readline-sync
-function readUserInput(questionText) {
-    const readlineSync = require('readline-sync');
-
-    // Wait for user's response.
-    return readlineSync.question(questionText);
-}
-
 class Entrevistado {
   constructor(codigo, sexo, idade, quantidadeLivros) {
     this.codigo = codigo;
@@ -19,26 +11,37 @@ class Entrevistado {
   }
 }
 
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+function gerarSexo() {
+  return generateRandomNumber(0, 1) === 0 ? 'M' : 'F';
+}
+
 function mostrarTudoArray(array) {
   for(let pessoa of array) {
     pessoa.mostrarDados();
   }
 }
 
-let entrevistados = [];
+function criarArrayEntrevistados(quantidade) {
+  let entrevistados = [];
 
-for(let i = 1; i <= 3; i++) {
-  let codigo = i;
-  let sexo = readUserInput('Informe o sexo do entrevistado: ');
-  let idade = Number(readUserInput('Informe a idade do entrevistado: '));
-  let quantLivros = Number(readUserInput('Informe a quantidade de livros lidos: '));
+  for(let i = 1; i <= quantidade; i++) {
+    let codigo = i;
+    let sexo = gerarSexo();
+    let idade = generateRandomNumber(5, 50);
+    let quantLivros = generateRandomNumber(0, 10);
 
-  console.log('\n');
+    entrevistados.push(new Entrevistado(codigo, sexo, idade, quantLivros));
 
-  entrevistados.push(new Entrevistado(codigo, sexo, idade, quantLivros));
+  }
+
+  return entrevistados;
 }
 
-console.log('--- Todos entrevistados ---');
+let entrevistados = criarArrayEntrevistados(10);
 mostrarTudoArray(entrevistados);
 
 console.log('\n');

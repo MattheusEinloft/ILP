@@ -79,3 +79,12 @@ console.log('\n');
 
 // ---------------------------------------------------------------
 
+let naoGostamRedacao = alunos.filter(aluno => aluno.gostaRedacao === 'Nao');
+let naoRedacao3Serie = naoGostamRedacao.filter(aluno => aluno.serie === 3);
+let totalAlunos = alunos.length;
+
+console.log('--- Alunos Terceira Serie que nao gostam de redacao ---');
+mostrarTudoArray(naoRedacao3Serie);
+
+let percentualNaoRedacao3Serie = (naoRedacao3Serie.length * 100) / totalAlunos;
+console.log(`Porcentagem que nao gostam de redacao e que estao na terceira serie: ${percentualNaoRedacao3Serie}`);

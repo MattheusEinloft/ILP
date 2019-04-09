@@ -55,8 +55,27 @@ mostrarTudoArray(alunos3Serie);
 
 console.log(`Quantidade de alunos da terceira serie: ${alunos3Serie.length}`);
 
+console.log('\n');
+
 // ---------------------------------------------------------------
 
 let alunos4Serie = alunos.filter(aluno => aluno.serie === 4);
 
+let maiorQuantLivros4Serie;
+if (Array.isArray(alunos4Serie) && alunos4Serie.length) {
+    // array exists and is not empty
+    maiorQuantLivros4Serie = Math.max(...(alunos4Serie.map(aluno => aluno.quantidadeLivrosPorMes)));
+}
+else {
+  maiorQuantLivros4Serie = 0;
+}
+
+console.log('--- Alunos Quarta Serie ---');
+mostrarTudoArray(alunos4Serie);
+
+console.log(`Maior quantidade de livros lidos por um aluno da quarta serie: ${maiorQuantLivros4Serie}`);
+
+console.log('\n');
+
+// ---------------------------------------------------------------
 

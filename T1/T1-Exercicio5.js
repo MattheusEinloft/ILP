@@ -15,11 +15,11 @@ class Entrevistado {
   }
 
   mostrarDados() {
-    console.log(`[${this.codigo}] Sexo: ${this.sexo}, Idade: ${this.idade}, Quantidade de Livros Lidos: ${this.quantidadeLivros}`);
+    console.log(`[${this.codigo}] Sexo: ${this.sexo}; Idade: ${this.idade}; Quantidade de Livros Lidos: ${this.quantidadeLivros}`);
   }
 }
 
-function mostrarTodosArray(array) {
+function mostrarTudoArray(array) {
   for(let pessoa of array) {
     pessoa.mostrarDados();
   }
@@ -39,17 +39,18 @@ for(let i = 1; i <= 3; i++) {
 }
 
 console.log('--- Todos entrevistados ---');
-mostrarTodosArray(entrevistados);
+mostrarTudoArray(entrevistados);
+
+console.log('\n');
+
+// -------------------------------------------------------------
 
 let menores10Anos = entrevistados.filter(entrevistado => entrevistado.idade < 10);
 
-// Consertar isso aqui (nao funciona com somente 1 menor de 10 anos)
-let quantLivrosMenores10Anos = menores10Anos.reduce(function(prev, next) {
-  return prev.quantidadeLivros + next.quantidadeLivros;
-});
+let quantLivrosMenores10Anos = menores10Anos.reduce((accumulator, currentValue) => accumulator + currentValue.quantidadeLivros, 0);
 
 console.log('--- Menores de 10 anos ---');
-mostrarTodosArray(menores10Anos);
+mostrarTudoArray(menores10Anos);
 
 console.log(`Quantidade de livros lidos por menores de 10 anos: ${quantLivrosMenores10Anos}\n`);
 
@@ -61,15 +62,39 @@ let mulheresMin5Livros = mulheres.filter(entrevistado => entrevistado.quantidade
 let quantMulheresMin5Livros = mulheresMin5Livros.length;
 
 console.log('--- Mulheres que leram 5 livros ou mais ---');
-mostrarTodosArray(mulheresMin5Livros);
+mostrarTudoArray(mulheresMin5Livros);
 
-console.log(`Quantidade de mulheres que leram pelo menos 5 livros: ${quantMulheresMin5Livros}\n`);
+console.log(`Quantidade de mulheres que leram 5 livros ou mais: ${quantMulheresMin5Livros}\n`);
 
-// ---------------------------------------------------------------
+// --------------------------------------------------------------
 
 let homens = entrevistados.filter(entrevistado => entrevistado.sexo === 'M');
 
 let homensMenos5Livros = homens.filter(entrevistado => entrevistado.quantidadeLivros < 5);
 
+function average(array) {
+    return array.reduce(function(sum, value) {
+        return sum + value.idade;
+    }, 0) / array.length;
+}
+
+let mediaIdadeHomensMenos5Livros = average(homensMenos5Livros);
+
 console.log('--- Homens que leram menos que 5 livros ---');
-mostrarTodosArray(homensMenos5Livros);
+mostrarTudoArray(homensMenos5Livros);
+
+console.log(`Media de idade de homens que leram menos que 5 livros: ${mediaIdadeHomensMenos5Livros}\n`);
+
+// -------------------------------------------------------------
+
+let pessoasNaoLeram = entrevistados.filter(entrevistado => entrevistado.quantidadeLivros === 0);
+
+let numPessoasNaoLeram = pessoasNaoLeram.length;
+let totalEntrevistados = entrevistados.length;
+
+let percentualPessoasNaoLeram = (numPessoasNaoLeram * 100) / totalEntrevistados;
+
+console.log('--- Pessoas que nao leram livros ---');
+mostrarTudoArray(pessoasNaoLeram);
+
+console.log(`Percentual de pessoas que nao leram livros: ${percentualPessoasNaoLeram}`);

@@ -5,8 +5,12 @@ class Produto {
     this.percentualAumento = Number(percentualAumento);
   }
 
+  novoValor() {
+    return this.valor + ((this.valor * this.percentualAumento) / 100);
+  }
+
   mostrarDados() {
-    console.log(`[${this.id}] Valor: ${this.valor}; Percentual de aumento: ${this.percentualAumento}`);
+    console.log(`[${this.id}] Valor: ${this.valor}; Percentual de aumento: ${this.percentualAumento}; Novo valor: ${this.novoValor()}`);
   }
 }
 
@@ -37,8 +41,5 @@ function criarArrayProdutos(quantidade) {
 let produtos = criarArrayProdutos(5);
 mostrarTudoArray(produtos);
 
-console.log('\n');
-
 // ---------------------------------------------------------------
-
 

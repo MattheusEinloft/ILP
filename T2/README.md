@@ -1,6 +1,6 @@
 # T2 - Reflexão
-Compilar código:\n
+Compilar código:  
 javac -classpath javassist.jar ClassGenerator.java
 
-Executar código:\n
+Executar código:  
 java -classpath javassist.jar ClassGenerator.java

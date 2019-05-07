@@ -31,3 +31,10 @@ function calculateValueOfS() {
 }
 
 console.log(calculateValueOfS());
+
+// let denominators = [...new Array(50)].fill(1);
+
+// // fill denominators
+//   denominators = denominators.map((value, index) => value + index);
+  
+//   s = numerators.reduce((partial_sum, value) => partial_sum + value, 0);

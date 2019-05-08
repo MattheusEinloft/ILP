@@ -4,13 +4,13 @@ function fillNumeratorsList() {
 }
 
 // creates an array of 50 numbers, starting at 1 and ending at 50
-function filDenominatorsList() {
+function fillDenominatorsList() {
     return [...new Array(50)].fill(1).map((value, index) => value + index);
 }
 
 function calculateValueOfS() {
     let numerators = fillNumeratorsList();
-    let denominators = filDenominatorsList();
+    let denominators = fillDenominatorsList();
 
     // creates an array of numerators divided by their corresponding denominators
     let numDivDenList = numerators.map((num, index) => num / denominators[index]);

@@ -1,5 +1,3 @@
-// npm install readline-sync
-
 function readUserInput(questionText) {
     const readlineSync = require('readline-sync');
 

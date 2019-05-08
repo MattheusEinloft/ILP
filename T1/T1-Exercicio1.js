@@ -1,40 +1,22 @@
-function repeat(n, action) {
-    for(let i = 0; i < n; i++){
-        action(i);
-    }
-}
-
-function isOdd(number) {
-    return number % 2 !== 0;
-}
-
+// creates an array of 50 odd numbers, starting at 1 and ending at 99
 function fillNumeratorsList() {
-    let numerators = [];
-    repeat(100, num => {
-        if(isOdd(num)) {
-            numerators.push(num);
-        }
-    });
+    return [...new Array(50)].fill(1).map((value, index) => value + (index * 2));
+}
 
-    return numerators;
+// creates an array of 50 numbers, starting at 1 and ending at 50
+function filDenominatorsList() {
+    return [...new Array(50)].fill(1).map((value, index) => value + index);
 }
 
 function calculateValueOfS() {
     let numerators = fillNumeratorsList();
+    let denominators = filDenominatorsList();
 
-    let s = 0;
-    repeat(50, i => {
-        s = s + numerators[i] / (i+1);
-    });
+    // creates an array of numerators divided by their corresponding denominators
+    let numDivDenList = numerators.map((num, index) => num / denominators[index]);
 
-    return s;
+    // returns the sum of all the values of the array numDivDenList
+    return numDivDenList.reduce((partial_sum, value) => partial_sum + value, 0);
 }
 
 console.log(calculateValueOfS());
-
-// let denominators = [...new Array(50)].fill(1);
-
-// // fill denominators
-//   denominators = denominators.map((value, index) => value + index);
-  
-//   s = numerators.reduce((partial_sum, value) => partial_sum + value, 0);

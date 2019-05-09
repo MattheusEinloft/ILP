@@ -5,46 +5,29 @@ function readUserInput(questionText) {
     return readlineSync.question(questionText);
 }
 
-function isNumber(num) {
-    return !isNaN(num);
+function askForPositiveNumber() {
+    return Number(readUserInput('Informe um numero positivo\n'));
 }
 
-function isPositive(num) {
-    return num > 0;
-}
-
-function stringToNumber(str) {
-    return Number(str);
-}
-
-function response() {
-    return stringToNumber(readUserInput('Informe um numero positivo\n'));
+function inputIsOk(input) {
+    return !isNaN(input) && input > 0 && Number.isInteger(input);
 }
 
 function getInputArray() {
     let array = [];
-    let res = response();
-    let run = true;
+    let input = askForPositiveNumber();
 
-    while(isNumber(res) && run) {
-        if(isPositive(res)) {
-            array.push(res);
-            res = response();
-        }
-        else {
-            run = false;
-        }
+    while(inputIsOk(input)) {
+        array.push(input);
+        input = askForPositiveNumber();
     }
 
     return array;
 }
 
-function average(array) {
-    return array.reduce(function(sum, value) {
-        return sum + value;
-    }) / array.length;
-}
+ let inputNumbers = getInputArray();
 
-let inputNumbers = getInputArray();
+// calculates the average of the numbers of the array
+let average = inputNumbers.reduce((sum, value) => sum + value) / inputNumbers.length;
 
-console.log(`media = ${average(inputNumbers)}`);
+console.log(`media = ${average}`);

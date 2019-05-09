@@ -1,35 +1,35 @@
 function readUserInput(questionText) {
-    const readlineSync = require('readline-sync');
+  const readlineSync = require('readline-sync');
 
-    // wait for user's response
-    return readlineSync.question(questionText);
+  // wait for user's response
+  return readlineSync.question(questionText);
 }
 
 // asks the user an question
 function askTheUser(question) {
-    return Number(readUserInput(question));
+  return Number(readUserInput(question));
 }
 
 // returns true if the input is a number and is a integer
 function inputIsOk(input) {
-    return !isNaN(input) && Number.isInteger(input);
+  return !isNaN(input) && Number.isInteger(input);
 }
 
 // reads 10 numbers and add them to an array
 function getInputArray() {
-    let array = [];
+  let array = [];
 
-    for(let i = 0; i < 10; i++) {
-        let input = askTheUser('Informe um numero: ');
+  for(let i = 0; i < 10; i++) {
+    let input = askTheUser('Informe um numero: ');
 
-        while(!inputIsOk(input)) {
-            input = askTheUser('Entrada nao eh um numero. Informe novamente: ');
-        }
-
-        array.push(input);
+    while(!inputIsOk(input)) {
+        input = askTheUser('Entrada nao eh um numero. Informe novamente: ');
     }
 
-    return array;
+    array.push(input);
+  }
+
+  return array;
 }
 
 let inputNumbers = getInputArray();

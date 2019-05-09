@@ -1,8 +1,8 @@
 function readUserInput(questionText) {
-    const readlineSync = require('readline-sync');
+  const readlineSync = require('readline-sync');
 
-    // wait for user's response
-    return readlineSync.question(questionText);
+  // wait for user's response
+  return readlineSync.question(questionText);
 }
 
 class Funcionario {

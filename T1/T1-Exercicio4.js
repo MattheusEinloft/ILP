@@ -1,7 +1,7 @@
 function readUserInput(questionText) {
     const readlineSync = require('readline-sync');
 
-    // Wait for user's response.
+    // wait for user's response
     return readlineSync.question(questionText);
 }
 

@@ -1,18 +1,21 @@
 function readUserInput(questionText) {
     const readlineSync = require('readline-sync');
 
-    // Wait for user's response.
+    // wait for user's response
     return readlineSync.question(questionText);
 }
 
+// asks the user to input positive numbers
 function askForPositiveNumber() {
     return Number(readUserInput('Informe um numero positivo\n'));
 }
 
+// returns true if the input is a number, is positive and is a integer
 function inputIsOk(input) {
     return !isNaN(input) && input > 0 && Number.isInteger(input);
 }
 
+// loops while the user inputs positive numbers and add them to an array
 function getInputArray() {
     let array = [];
     let input = askForPositiveNumber();

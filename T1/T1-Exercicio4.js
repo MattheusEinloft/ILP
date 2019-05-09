@@ -10,8 +10,6 @@ class Funcionario {
     this.codigo = codigo;
     this.horasTrabalhadas = horasTrabalhadas;
     this.numDependentes = numDependentes;
-
-    this.mostrarDados();
   }
 
   valorPorHoras() {
@@ -50,11 +48,13 @@ class Funcionario {
 let funcionarios = [];
 
 for(let i = 1; i <= 10; i++) {
-  let codigo = readUserInput('Informe o codigo do funcionario');
-  let horas = readUserInput('Informe o numero de horas trabalhadas');
-  let depend = readUserInput('Informe o numero de dependentes');
+  let codigo = readUserInput('Informe o codigo do funcionario: ');
+  let horas = readUserInput('Informe o numero de horas trabalhadas: ');
+  let depend = readUserInput('Informe o numero de dependentes: ');
 
   console.log('\n');
 
   funcionarios.push(new Funcionario(codigo, horas, depend));
 }
+
+funcionarios.map(func => func.mostrarDados());

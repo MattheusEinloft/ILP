@@ -6,6 +6,6 @@
 
 ## Instruções  
 1. Abrir a pasta do projeto no terminal (**cd T1**)  
-2. **npm install**  
-3. Executar o arquivo desejado (exemplo: **node T1-Exercicio1.js**)  
-4. Veja a mágica acontecer! :)  
+1. **npm install**  
+1. Executar o arquivo desejado (exemplo: **node T1-Exercicio1.js**)  
+1. Veja a mágica acontecer! :)  

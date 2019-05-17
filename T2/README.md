@@ -1,6 +1,14 @@
-# T2 - Reflexão
-Compilar código:  
-javac -classpath javassist.jar ClassGenerator.java
+# T2 - Reflexão  
 
-Executar código:  
-java -classpath javassist.jar ClassGenerator.java
+## Descrição  
+Programa de exemplo para mostrar funcionalidades do Javassist, como criação de classes, de atributos e de métodos programaticamente.  
+
+## Requisitos  
+* Netbeans  
+* javassist.jar  
+
+## Instruções  
+1. Copie a pasta "CodeGenerator" para a pasta NetBeansProjects  
+1. Abra o projeto  
+1. Adicione o arquivo "javassist.jar" no projeto  
+1. Execute o projeto

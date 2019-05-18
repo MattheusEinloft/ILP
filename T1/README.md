@@ -1,4 +1,4 @@
-# T1 de ILP  
+# T1 - Exercícios de Expressões Lambda e Streams  
 
 ## Requisitos  
 * Node.js (Disponível para download em: https://nodejs.org/en/download/)  

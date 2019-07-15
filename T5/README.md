@@ -13,9 +13,11 @@ Operações suportadas:
 
 ## Instruções  
 1. Configure o ANTLR (Instruções disponíveis em: https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)  
-1. Abra um terminal na pasta com os arquivos do projeto (cd T5)  
+1. Clone o projeto  
+1. 
 1. Execute os seguintes comandos:
 ```
+$ cd ILP/T5
 $ antlr4 -visitor -no-listener -Dlanguage=Python3 Calculator.g4
 $ python3 main.py input.txt
 ```
